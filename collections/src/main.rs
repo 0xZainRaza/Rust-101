@@ -1,5 +1,8 @@
 
 
+use std::collections::HashMap;
+use std::collections::BTreeMap;
+
 fn main() {
     println!("Hello, world!");
     let mut _vector : Vec<u8>  = Vec::new();
@@ -32,7 +35,57 @@ fn main() {
     print!("{}\n",result);
     
     let result2:bool = test.contains(&5);
-    println!("{}",result2)
+    println!("{}",result2);
+
+    //Collections
+    let mut _map : HashMap<u8,&str> = HashMap::new();
+
+    _map.insert(1,"zain");
+   
+    _map.insert(3,"hehe");
+    _map.insert(2,"umer");
+
+    for kvp in _map.iter() {
+
+        print!("Key {}, Value {}\n",kvp.0,kvp.1)
+        
+    }
+
+
+    let mut _map2: BTreeMap<u8, &str> = BTreeMap::new();
+
+    _map2.insert(1, "Less goo1");
+    _map2.insert(3, "Less goo3");
+    _map2.insert(2, "Less goo2");
+    
+    for kvp in _map2.iter(){
+        print!("Key = {}, value = {}\n",kvp.0,kvp.1);
+
+    }
+
+    
+    let mut _map3 : HashMap<u8,&str> = HashMap::new();
+
+    _map3.insert(1, "Test1");
+    _map3.insert(2, "Test2");
+    _map3.insert(3, "Test3");
+
+
+
+    if _map3.contains_key(&2){
+        _map3.insert(2, "Overloaded");
+    }
+
+    for kvp in _map3.iter(){
+        print!("Key = {}, Value: {}\n",kvp.0,kvp.1);
+    }
+
+
+
+
+
+
+
 
 
 
