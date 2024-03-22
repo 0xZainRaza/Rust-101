@@ -1,3 +1,5 @@
+
+
 fn main() {
     println!("Hello, world!");
     let mut _vector : Vec<u8>  = Vec::new();
@@ -16,12 +18,22 @@ fn main() {
     for data in _vector.iter(){
         print!("{} ",data)
     }
-    d =9
+    
+    let mut test : Vec<u8>  = Vec::new();
 
-    let i: Option<u8>: Option<u8> = _vector.pop();
+    let i: Option<u8> = test.pop();
     match i {
-        Some(d) => print!("Hello"),
-        None => print!("Not Found")
-
+        Some(_d) => println!("Hello"),
+        None => println!("Not Found")
     }
+
+    test.push(4);
+    let result:bool = test.contains(&4);
+    print!("{}\n",result);
+    
+    let result2:bool = test.contains(&5);
+    println!("{}",result2)
+
+
+
 }
