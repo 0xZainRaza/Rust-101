@@ -1,3 +1,5 @@
+use std::env::args;
+
 
 
 fn add(i1:u8,i2:u8){
@@ -85,6 +87,17 @@ fn main() {
         let ret = add_int(i, i);
         print!("\nResult = {}",ret);
     }
+
+    //Command line Aguments
+    let args: Vec<String> = args().collect();
+    if args.len() < 3{
+        println!("Show usage");
+    }
+
+
+
+
+
 
 
 }
