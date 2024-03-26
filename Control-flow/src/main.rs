@@ -1,4 +1,4 @@
-use std::env::args;
+use std::{env::args, fmt::format, io::{self, Write}, string};
 
 
 
@@ -94,10 +94,21 @@ fn main() {
         println!("Show usage");
     }
 
+    //Write
+    
 
+    let mut input = String::new();
+    let _ = io::stdin().read_line(&mut input);
+    println!("{}",input);
 
+    
+    let closure = | message: &str| -> String {
+        format!("Zain = = {}",message)
+    };
 
+    let test = closure("Hello Zain");
 
+    print!("{}",test);
 
 
 }
