@@ -1,14 +1,24 @@
-fn main() {
-    let vector = [1,2,3,4,5];    
-    for i in 0..=5{
-        let option = vector.get(i);
-        match option{
-            None => println!("No data found at index: {}",i),
-            Some(d) => println!("The data at {} index: {}",d,i)
-        }
+use std::fs::File;
+use std::io::prelude::*;
+use std::path::Path;
 
+fn main() {
+    // Create a path to the desired file
+    let path = Path::new(r"C:\Users\DELL\Documents\Rust-101\Error-Handling\src\test.txt");
+    let display = path.display();
+
+    // Open the path in read-only mode, returns `io::Result<File>`
+    let mut file = match File::open(&path) {
+        Err(why) => panic!("couldn't open {}: {}", display, why),
+        Ok(file) => file,
+    };
+
+    // Read the file contents into a string, returns `io::Result<usize>`
+    let mut s = String::new();
+    match file.read_to_string(&mut s) {
+        Err(why) => panic!("couldn't read {}: {}", display, why),
+        Ok(_) => print!("{} contains:\n{}", display, s),
     }
 
-
-
+    // `file` goes out of scope, and the "hello.txt" file gets closed
 }
