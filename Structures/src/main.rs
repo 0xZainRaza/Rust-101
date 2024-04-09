@@ -26,13 +26,28 @@ impl Rectangle{
     fn calculate_area(self)-> u16{
         self.length * self.width
     }
-
-
-
 }
 
 
+struct Sheep{
+    number: u16
+}
+
+trait Animaltraits {
+    fn make_noise(&self);
+}
+
+
+impl Animaltraits for Sheep{
+    fn make_noise(&self){
+        println!("Baa Baa");
+    }
+
+}
+
 fn main() {
+
+    //Associated functions
     let mut person1 = Person{
         first_name : String::from("Zain"),
         last_name : String::from("Raza"),
@@ -56,8 +71,13 @@ fn main() {
    
    let area = Rectangle1.calculate_area();
    println!("The area of rectangle is {}",area);
+ 
+   //Traits
+   let sheep1 = Sheep{
+    number: 1
+   };
 
-
+   sheep1.make_noise();
 
 
 }
