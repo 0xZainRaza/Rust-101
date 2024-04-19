@@ -50,7 +50,20 @@ fn main() -> Result<(), Error> {
     }
 
 
-    
+    if input.trim() == "2"{
+        println!("Enter the To-Do item number:");
+        let mut delitem = String::new();
+        io::stdin().read_line(&mut delitem)?;
+
+        todolist.remove(1-1);
+        let mut file = File::create(r"C:\Users\DELL\Documents\Rust-101\Project\src\data.txt")?;
+
+        // Write each item from the to-do list to the file
+        for item in &todolist {
+            writeln!(file, "{}", item)?;
+        }
+        println!("To-Do item removed successfully!");
+    }
 
 
 
